@@ -1,0 +1,65 @@
+//
+//  PrefixHeader.pch
+//  BaseProject
+//
+//  Created by tarena on 15/12/16.
+//  Copyright © 2015年 tarena. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+/*
+ 解决pch文件没有代码提示的问题:
+ 任意找一个位置--appdelegate.m文件
+ 调用以下pch文件中 任意一个头文件所包含的方法,然后build(cmd + B),即可
+ */
+
+//自定义DEBUG调试时MYLog == NSLog，不调试时上线时不会输出
+#ifdef DEBUG
+#define MYLog(...) NSLog(__VA_ARGS__)
+#else
+#define MYLog(...)
+#endif
+
+
+#import <UIKit/UIKit.h>             //UI
+#import <Foundation/Foundation.h> //NS
+
+//这个文件中,经常会声明一些全局变量或者方法
+#import "AppDelegate.h"
+
+//全局宏定义文件
+#import "Constants.h"
+#import "Methods.h"
+
+//只要有网络操作
+#import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
+
+//可选, 与UIKit+AFNetworking.h冲突, 二选一
+//#import <SDImageCache.h>
+
+//头部刷新
+#import <MJRefresh.h>
+
+/*按照功能需求 可选  */
+//#import <FMDB.h>
+//#import <CocoaAsyncSocket.h>
+//......
+
+#import <Masonry.h>
+#import <BlocksKit.h>
+#import <BlocksKit+UIKit.h>
+
+
+#endif /* PrefixHeader_pch */
+
+
+
+
+
+
+
+
